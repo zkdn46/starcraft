@@ -10,4 +10,9 @@ abstract public class Unit {
 		this.hp = hp;
 		this.name = name;
 	}
+	
+	public String toString() {
+		String msg = String.format("%s [%d/%d]", name, hp, MAX_HP);
+		return msg;
+	}
 }
