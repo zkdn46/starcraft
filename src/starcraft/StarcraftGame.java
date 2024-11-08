@@ -64,7 +64,29 @@ public class StarcraftGame {
 
 	private void attack() {
 		printUnit();
-		int sel = input("공격할 유닛 선택");
+		int me = input("공격할 유닛 선택") - 1;
+		int you = input("공격당할 유닛 선택") - 1;
+
+		if ((me == TANK || me == SCV) && you == DROPSHIP) {
+			System.out.println("공중 유닛은 공격 할 수 없습니다.");
+			return;
+		}
+
+		if (me == TANK) {
+			tank.attack(list.get(you));
+		} else if (me == MARINE) {
+			marine.attack(list.get(you));
+		} else if (me == SCV) {
+			scv.attack(list.get(you));
+		} else if (me == DROPSHIP) {
+			System.out.println("공격이 불가한 유닛입니다.");
+		}
+
+		if (list.get(you).hp <= 0) {
+			list.get(you).hp = 0;
+			System.out.println(list.get(you).name + " 사망");
+		}
+		System.out.println(list.get(you));
 	}
 
 	private void repair() {
