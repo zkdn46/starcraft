@@ -75,6 +75,17 @@ public class StarcraftGame {
 			System.out.println("1~4 입력");
 			return;
 		}
+
+		if (sel == TANK) {
+			scv.repair(tank);
+		} else if (sel == MARINE) {
+			System.out.println("이 유닛은 수리가 불가능합니다.");
+		} else if (sel == SCV) {
+			scv.repair(scv);
+		} else if (sel == DROPSHIP) {
+			scv.repair(ship);
+		}
+
 	}
 
 	private void exit() {
