@@ -60,16 +60,22 @@ public class StarcraftGame {
 	}
 
 	private void attack() {
-
+		printUnit();
 	}
 
 	private void repair() {
-
+		printUnit();
 	}
 
 	private void exit() {
 		isRun = false;
 		System.out.println("게임 종료.");
+	}
+
+	private void printUnit() {
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println((i + 1) + ")" + list.get(i));
+		}
 	}
 
 	private int input(String message) {
