@@ -8,6 +8,11 @@ public class StarcraftGame {
 	private final int REPAIR = 2;
 	private final int EXIT = 0;
 
+	private final int TANK = 0;
+	private final int MARINE = 1;
+	private final int SCV = 2;
+	private final int DROPSHIP = 3;
+
 	private Scanner sc = new Scanner(System.in);
 
 	private static StarcraftGame instance = new StarcraftGame();
@@ -42,15 +47,13 @@ public class StarcraftGame {
 		printMenu();
 		int sel = input("메뉴선택");
 
-		switch (sel) {
-		case ATTACK:
+		if (sel == ATTACK) {
 			attack();
-		case REPAIR:
+		} else if (sel == REPAIR) {
 			repair();
-		case EXIT:
+		} else if (sel == EXIT) {
 			exit();
 		}
-
 	}
 
 	private void printMenu() {
@@ -61,10 +64,17 @@ public class StarcraftGame {
 
 	private void attack() {
 		printUnit();
+		int sel = input("공격할 유닛 선택");
 	}
 
 	private void repair() {
 		printUnit();
+		int sel = input("수리 할 유닛 선택") - 1;
+
+		if (sel < TANK || sel > DROPSHIP) {
+			System.out.println("1~4 입력");
+			return;
+		}
 	}
 
 	private void exit() {
