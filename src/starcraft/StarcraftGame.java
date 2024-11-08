@@ -7,14 +7,13 @@ public class StarcraftGame {
 	private final int ATTACK = 1;
 	private final int REPAIR = 2;
 	private final int EXIT = 0;
-
+	
 	private final int TANK = 0;
 	private final int MARINE = 1;
 	private final int SCV = 2;
 	private final int DROPSHIP = 3;
 
 	private Scanner sc = new Scanner(System.in);
-
 	private static StarcraftGame instance = new StarcraftGame();
 
 	public static StarcraftGame getInstance() {
