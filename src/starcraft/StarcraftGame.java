@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StarcraftGame {
+	private final int ATTACK = 1;
+	private final int REPAIR = 2;
+	private final int EXIT = 0;
+
 	private Scanner sc = new Scanner(System.in);
 
 	private static StarcraftGame instance = new StarcraftGame();
@@ -18,16 +22,13 @@ public class StarcraftGame {
 	private DropShip ship = new DropShip();
 	ArrayList<Unit> list = new ArrayList<Unit>();
 
+	private boolean isRun = true;
+
 	public void run() {
 		set();
-		while (true) {
+		while (isRun) {
 			play();
 		}
-	}
-
-	private void play() {
-
-		System.out.println(list.get(0));
 	}
 
 	private void set() {
@@ -35,6 +36,27 @@ public class StarcraftGame {
 		list.add(marine);
 		list.add(scv);
 		list.add(ship);
+	}
+
+	private void play() {
+		printMenu();
+		int sel = input("메뉴선택");
+
+		switch (sel) {
+		case ATTACK:
+			attack();
+		case REPAIR:
+			repair();
+		case EXIT:
+			exit();
+		}
+
+	}
+
+	private void printMenu() {
+		System.out.println("1. 공격");
+		System.out.println("2. 수리");
+		System.out.println("0. 종료");
 	}
 
 	private void attack() {
@@ -45,9 +67,14 @@ public class StarcraftGame {
 
 	}
 
+	private void exit() {
+		isRun = false;
+		System.out.println("게임 종료.");
+	}
+
 	private int input(String message) {
 		System.out.print(message + " : ");
-		String input = sc.nextLine();
+		String input = "";
 
 		int number = -1;
 		try {
