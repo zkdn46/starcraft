@@ -7,4 +7,8 @@ public class StarcraftGame {
 		return instance;
 	}
 
+	public void run() {
+		
+	}
+	
 }
