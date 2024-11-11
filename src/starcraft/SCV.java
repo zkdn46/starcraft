@@ -25,7 +25,8 @@ public class SCV extends GroundUnit implements Repairable, Attackable {
 		}
 	}
 
-	public void attack(Unit unit) {
-		unit.hp -= 5;
+	public void attack(Attackable unit) {
+		Unit target = (Unit) unit;
+		target.hp-=5;
 	}
 }

@@ -5,7 +5,8 @@ public class Tank extends GroundUnit implements Repairable, Attackable{
 		super("탱크", 300);
 	}
 
-	public void attack(Unit unit) {
-		unit.hp-=30;
+	public void attack(Attackable unit) {
+		Unit target = (Unit) unit;
+		target.hp-=30;
 	}
 }

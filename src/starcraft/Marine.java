@@ -5,7 +5,8 @@ public class Marine extends GroundUnit implements Attackable{
 		super("마린", 120);
 	}
 	
-	public void attack(Unit unit) {
-		unit.hp-=15;
+	public void attack(Attackable unit) {
+		Unit target = (Unit) unit;
+		target.hp-=15;
 	}
 }

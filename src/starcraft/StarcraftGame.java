@@ -72,11 +72,11 @@ public class StarcraftGame {
 		}
 
 		if (me == TANK) {
-			tank.attack(list.get(you));
+			tank.attack((Attackable) list.get(you));
 		} else if (me == MARINE) {
-			marine.attack(list.get(you));
+			marine.attack((Attackable) list.get(you));
 		} else if (me == SCV) {
-			scv.attack(list.get(you));
+			scv.attack((Attackable) list.get(you));
 		} else if (me == DROPSHIP) {
 			System.out.println("공격이 불가한 유닛입니다.");
 		}
