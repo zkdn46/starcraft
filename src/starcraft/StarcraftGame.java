@@ -24,7 +24,7 @@ public class StarcraftGame {
 	private Marine marine = new Marine();
 	private SCV scv = new SCV();
 	private DropShip ship = new DropShip();
-	ArrayList<Unit> list = new ArrayList<Unit>();
+	private ArrayList<Unit> list = new ArrayList<Unit>();
 
 	private boolean isRun = true;
 
